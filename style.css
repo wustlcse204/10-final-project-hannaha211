@@ -4,6 +4,8 @@
 
 body {
   font-family: 'Rubik', sans-serif;
+  background-color: black;
+  color: white;
 }
 
 /*Begin header styling*/
@@ -43,6 +45,10 @@ body {
 
 .container {
   text-align: center;
+}
+
+.restofpage {
+  background-color: black;
 }
 
 /*Begin Game Styling*/
