@@ -17,7 +17,18 @@
   <body>
     <div id="game">
       <h1>Trivia</h1>
-      <button id=next-btn>Next Question</button>
+      <div id="start"><button id=startbtn>Start Game</button></div>
+      <div id="inprogress">
+        <div id="category"></div>
+        <div id="question"></div>
+        <div id="answer">
+          <button id="answerbtn">Reveal Answer</button>
+        </div>
+        <button id=nextbtn>Next Question</button>
+        <button id=rightbtn>I was correct!</button>
+        <button id=wrongbtn>I was wrong!</button>
+      </div>
+      <div id="score"></div>
     </div>
 
     <!--Link to personal JS-->
