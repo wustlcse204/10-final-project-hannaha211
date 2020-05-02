@@ -4,32 +4,47 @@
     <!--Meta tags-->
     <meta charset="UTF-8">
     <meta name="author" content="Hannah Anderson">
-    <meta name="keywords" content="Hannah Anderson, CSE204A, Final, Trivia">
-    <meta name="description" content="Hannah Anderson's CSE 204A Final: Film & TV Trivia.">
+    <meta name="keywords" content="Hannah Anderson, CSE204A, Final, Trivia, Jeopardy">
+    <meta name="description" content="Hannah Anderson's CSE 204A Final: Jeoparody!">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>CSE204A ToDo App</title>
+    <title>CSE204A Final: Jeoparody!</title>
 
     <!--Link to personal stylesheet-->
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
 
   <body>
-    <div id="game">
-      <h1>Trivia</h1>
-      <div id="start"><button id=startbtn>Start Game</button></div>
-      <div id="inprogress">
-        <div id="category"></div>
-        <div id="question"></div>
-        <div id="answer">
-          <button id="answerbtn">Reveal Answer</button>
+
+    <div class="container" id="gamewrap"> <!--start gamewrap-->
+      <div id="game">
+        <h1>Trivia</h1>
+        <div id="pregame">
+          Welcome to Jeoparody! Are you ready to play?
+          <div id="start"><button id=startbtn>Start Game</button></div>
         </div>
-        <button id=nextbtn>Next Question</button>
-        <button id=rightbtn>I was correct!</button>
-        <button id=wrongbtn>I was wrong!</button>
+        <div id="inprogress">
+          <div id="category"></div>
+          <div id="question"></div>
+          <div id="answer">
+            <button id="answerbtn">Reveal Answer</button>
+          </div>
+          <div id="response">
+            <button id=rightbtn>I was correct!</button>
+            <button id=wrongbtn>I was wrong!</button>
+          </div>
+          <div id="end">
+            <button id=endbtn>End Game</button>
+          </div>
+          <div id="score"></div>
+        </div>
+        <div id="gameover">
+        </div>
+        <div id="playagain">
+          <button id="againbtn">Play Again</button>
+        </div>
       </div>
-      <div id="score"></div>
-    </div>
+    </div> <!--end gamewrap-->
 
     <!--Link to personal JS-->
     <script src="main.js"></script>

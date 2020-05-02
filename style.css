@@ -2,7 +2,12 @@
   Personal Stylesheet
 */
 
+.container {
+  text-align: center;
+}
+
 #game {
+  display: inline-block;
   margin: 10px;
 }
 
@@ -27,5 +32,9 @@
 }
 
 #inprogress {
+  display: none;
+}
+
+#playagain {
   display: none;
 }
