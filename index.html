@@ -5,40 +5,78 @@
     <meta charset="UTF-8">
     <meta name="author" content="Hannah Anderson">
     <meta name="keywords" content="Hannah Anderson, CSE204A, Final, Trivia, Film, Movies, Cinema">
-    <meta name="description" content="Hannah Anderson's CSE 204A Final: Movie ">
+    <meta name="description" content="Hannah Anderson's CSE 204A Final: Movie Trivia">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>CSE204A Final: Jeoparody!</title>
+    <title>CSE204A Final: Film Facts</title>
+
+    <!--Link to Hollywood Hills Font-->
+    <link href="//db.onlinewebfonts.com/c/799c2b7eeef3056e16365d7c857c15a1?family=SF+Hollywood+Hills" rel="stylesheet" type="text/css"/>
+
+    <!--Link to Rubik Font-->
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!--Link to personal stylesheet-->
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
 
   <body>
-
-    <div class="container" id="gamewrap"> <!--start gamewrap-->
-      <div id="game">
-        <h1>Trivia</h1>
-        <div id="pregame">
-          <form id="numqform" method="GET">
-            How many questions would you like? <input type="text" name="desiredq" id="desiredqcount" value=""><br><br>
-            <input type="button" value="Start Game" id=startbtn onClick = "getPlays(this.form)">
-          </form>
-        </div>
-        <div id="inprogress">
-          <div id="question"></div>
-          <div id="answers"></div>
-          <div id="score">
-          </div>
-        </div>
-        <div id="gameover">
-        </div>
-        <div id="playagain">
-          <button id="againbtn">Play Again</button>
+    <header>
+      <!--Navbar assistance from bootstrap documentation-->
+      <div class="navbar navbar-expand-lg container-fluid sticky-top" id="pagetop">
+        <div class="partition">
+            <div class="navbar navbar-brand">
+              <img src="film_reel_resized.png" alt="Film Reel" id="sitelogo" />
+              Film Facts
+            </div>
+            <div class="sectchoices">
+              <div class="navbar nav-item" id="contactbtn">
+                <a href="#" class="option">Contact</a>
+              </div>
+              <div class="navbar nav-item" id="resourcesbtn">
+                <a href="#" class="option">Resources</a>
+              </div>
+              <div class="navbar nav-item" id="factsbtn">
+                <a href="#" class="option">Fun Facts</a>
+              </div>
+              <div class="navbar nav-item" id="triviabtn">
+                <a href="#" class="option">Trivia Game</a>
+              </div>
+              <div class="navbar nav-item" id="homebtn">
+                <a href="#home" class="option">Home</a>
+              </div>
+            </div>
         </div>
       </div>
-    </div> <!--end gamewrap-->
+    </header>
 
+    <div class="restofpage">
+      <div class="container" id="gamewrap"> <!--start gamewrap-->
+        <div id="game">
+          <h1>Trivia</h1>
+          <div id="pregame">
+            <form id="numqform" method="GET">
+              How many questions would you like? <input type="text" name="desiredq" id="desiredqcount" value=""><br><br>
+              <input type="button" value="Start Game" id=startbtn onClick = "getPlays(this.form)">
+            </form>
+          </div>
+          <div id="inprogress">
+            <div id="question"></div>
+            <div id="answers"></div>
+            <div id="score">
+            </div>
+          </div>
+          <div id="gameover">
+          </div>
+          <div id="playagain">
+            <button id="againbtn">Play Again</button>
+          </div>
+        </div>
+      </div> <!--end gamewrap-->
+    </div>
     <!--Link to personal JS-->
     <script src="main.js"></script>
   </body>

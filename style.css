@@ -2,6 +2,41 @@
   Personal Stylesheet
 */
 
+body {
+  font-family: 'Rubik', sans-serif;
+}
+
+#pagetop{
+  background-color: black;
+  border-bottom: 2px solid #808080;
+}
+
+.navbar.navbar-brand {
+  text-align: left;
+  font-size: 40px;
+  font-family: 'SF Hollywood Hills', monospace;
+  color: #eb553f;
+}
+
+.option {
+  color: black;
+  font-size: 15px;
+  padding: 3px;
+  margin: 5px;
+  background-color: #729678;
+  border: 1px solid #729678;
+  border-radius: 5px;
+}
+
+.option:hover {
+  color: white;
+  background-color: #8DC7C8;
+}
+
+.navbar.nav-item {
+  float: right;
+}
+
 .container {
   text-align: center;
 }

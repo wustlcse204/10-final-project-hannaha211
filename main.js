@@ -1,20 +1,21 @@
 /*
   Personal Javascript
 
-  I used the Fetch API request instead of an XMLHttpRequest. I got basic code for this from https://developers.google.com/web/updates/2015/03/introduction-to-fetch
+  I used the Fetch API request instead of an XMLHttpRequest. I got basic code for fetch from https://developers.google.com/web/updates/2015/03/introduction-to-fetch
 */
 
 const startBtn = document.getElementById("startbtn");
-var desiredQuestionCount = 0;
-var currentQuestionCount = 0;
-var numCorrect = 0;
-
 const endBtn = document.getElementById("endbtn");
 const againBtn = document.getElementById("againbtn");
+
 let corrBtn = "";
 let incBtn1 = "";
 let incBtn2 = "";
 let incBtn3 = "";
+
+var desiredQuestionCount = 0;
+var currentQuestionCount = 0;
+var numCorrect = 0;
 
 //Extracts how many questions user wants
 function getPlays(form){
@@ -31,6 +32,7 @@ startBtn.addEventListener('click', function(){
   document.getElementById("inprogress").style.display = "block"; //Adds in progress screen
 });
 
+//Grabs API data, sets up clues correctly
 function setUpClue(){
   if(currentQuestionCount==desiredQuestionCount){
     endGame();
@@ -91,6 +93,7 @@ function setUpClue(){
   });
 }
 
+//Randomizes the way the answer options are presented so that the correct answer isn't in the same spot every time
 function randomizeAnswers(cAns, iAns1, iAns2, iAns3){
   var randNum = Math.floor(Math.random()*Math.floor(4));
   if(randNum == 0){
