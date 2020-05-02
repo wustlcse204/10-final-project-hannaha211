@@ -51,6 +51,13 @@ body {
   background-color: black;
 }
 
+/*Carousel styling*/
+
+.carousel-caption {
+  background-color: #808080;
+  background: rgba(0, 0, 0, 0.4);
+}
+
 /*Begin Game Styling*/
 #game {
   display: inline-block;
