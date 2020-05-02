@@ -3,65 +3,41 @@
 
   I used the Fetch API request instead of an XMLHttpRequest. I got basic code for this from https://developers.google.com/web/updates/2015/03/introduction-to-fetch
 */
+
 const startBtn = document.getElementById("startbtn");
-var correctBtn = document.getElementById("rightbtn");
-var wrongBtn = document.getElementById("wrongbtn");
+var desiredQuestionCount = 0;
+var currentQuestionCount = 0;
+var numCorrect = 0;
+
 const endBtn = document.getElementById("endbtn");
 const againBtn = document.getElementById("againbtn");
-let answer = "";
-let value = "";
-let currentscore = 0;
-let questioncount = 0;
+let corrBtn = "";
+let incBtn1 = "";
+let incBtn2 = "";
+let incBtn3 = "";
 
+//Extracts how many questions user wants
+function getPlays(form){
+  desiredQuestionCount = form.desiredq.value;
+  form.desiredq.value = "";
+  //console.log(desiredQuestionCount);
+}
+
+//Sets up first question
 startBtn.addEventListener('click', function(){
-  document.getElementById("pregame").style.display = "none";
-  document.getElementById("inprogress").style.display = "block";
+  document.getElementById("pregame").style.display = "none"; //Gets rid of start screen
+  document.getElementById("score").innerHTML = numCorrect + "/" + currentQuestionCount + " correct";
   setUpClue();
+  document.getElementById("inprogress").style.display = "block"; //Adds in progress screen
 });
 
-endBtn.addEventListener('click', function(){
-  console.log("end pressed");
-  //Handles grammar of end message
-  var q = "";
-  if(questioncount==1){
-    q="question";
-  }
-  else {
-    q="questions";
-  }
-  var endMessage = "";
-
-  //Customizes end message to score
-  if(currentscore<=0){
-    endMessage = "Oof! Better luck next time!";
-  }
-  else if(currentscore<10000){
-    endMessage = "Not bad!";
-  }
-  else{
-    endMessage = "Wow! You should go on the real show!";
-  }
-
-  document.getElementById("inprogress").style.display = "none";
-  document.getElementById("gameover").style.display = "block";
-  document.getElementById("gameover").innerHTML = "After " + questioncount + " "+q+", you scored " + currentscore + " points! " + endMessage;
-
-  document.getElementById("playagain").style.display = "block";
-
-  againBtn.addEventListener('click', function(){
-    currentscore = 0;
-    questioncount = 0;
-    document.getElementById("gameover").style.display = "none";
-    document.getElementById("playagain").style.display = "none";
-    document.getElementById("pregame").style.display = "block";
-  }); // end play again event listener
-}); //end end listener
-
 function setUpClue(){
-  document.getElementById("response").innerHTML = "";
-  document.getElementById("answer").innerHTML = "<button id='answerbtn'>Reveal Answer</button>";
+  if(currentQuestionCount==desiredQuestionCount){
+    endGame();
+    return;
+  }
 
-  fetch('http://jservice.io/api/random')
+  fetch('https://opentdb.com/api.php?amount=1&category=11&difficulty=medium&type=multiple')
   .then(
     function(response) {
       if (response.status !== 200) {
@@ -71,41 +47,41 @@ function setUpClue(){
       }
 
       response.json().then(function(data) {
-        const category = data[0].category.title;
-        value = data[0].value;
-        console.log("value: "+value);
-        const question = data[0].question;
-        console.log("question: "+question);
-        answer = data[0].answer;
-        document.getElementById("category").innerHTML = category;
-        document.getElementById("question").innerHTML = "For " + value + " points, " + question + ".";
-        document.getElementById("answer").style.display = "block";
-        document.getElementById("score").innerHTML = currentscore;
+        //Data gathering
+        const question = data.results[0].question;
+        const corrAns = data.results[0].correct_answer;
+        const incorrAns1 = data.results[0].incorrect_answers[0];
+        const incorrAns2 = data.results[0].incorrect_answers[1];
+        const incorrAns3 = data.results[0].incorrect_answers[2];
+        console.log("question: "+question+" XX correct: "+corrAns+" XX in1: "+incorrAns1+" XX in2: "+incorrAns2+" XX in3: "+incorrAns3);
 
-        document.getElementById("answerbtn").addEventListener('click', function(){
-          document.getElementById("answer").innerHTML = answer;
-          document.getElementById("response").innerHTML = "<button id=rightbtn>I was correct!</button><button id=wrongbtn>I was wrong!</button>"
-          correctBtn = document.getElementById("rightbtn");
-          wrongBtn = document.getElementById("wrongbtn");
+        //Display
+        document.getElementById("question").innerHTML = (currentQuestionCount+1)+". "+question;
+        randomizeAnswers(corrAns,incorrAns1,incorrAns2,incorrAns3);
+        document.getElementById("answers").style.display = "block";
 
-          correctBtn.addEventListener('click', function(){
-            console.log("correct hit");
-            questioncount++;
-            currentscore+=value;
-            document.getElementById("score").innerHTML = currentscore + " points";
-            setUpClue();
-          });
+        corrBtn.addEventListener('click', function(){
+          numCorrect++;
+          currentQuestionCount++;
+          document.getElementById("score").innerHTML = numCorrect + "/" + currentQuestionCount + " correct";
+          setUpClue();
+        });
 
-          wrongBtn.addEventListener('click', function(){
-            questioncount++;
-            console.log("wrong pressed");
-            currentscore=currentscore-value;
-            document.getElementById("score").innerHTML = currentscore + " points";
-            setUpClue();
-          });
-
-        });//end reveal answer addEventListener
-
+        incBtn1.addEventListener('click', function(){
+          currentQuestionCount++;
+          document.getElementById("score").innerHTML = numCorrect + "/" + currentQuestionCount + " correct";
+          setUpClue();
+        });
+        incBtn2.addEventListener('click', function(){
+          currentQuestionCount++;
+          document.getElementById("score").innerHTML = numCorrect + "/" + currentQuestionCount + " correct";
+          setUpClue();
+        });
+        incBtn3.addEventListener('click', function(){
+          currentQuestionCount++;
+          document.getElementById("score").innerHTML = numCorrect + "/" + currentQuestionCount + " correct";
+          setUpClue();
+        });
 
       });
     }
@@ -113,4 +89,66 @@ function setUpClue(){
   .catch(function(err) {
     console.log('Fetch Error :-S', err);
   });
+}
+
+function randomizeAnswers(cAns, iAns1, iAns2, iAns3){
+  var randNum = Math.floor(Math.random()*Math.floor(4));
+  if(randNum == 0){
+    document.getElementById("answers").innerHTML = '<button id="correctbtn">'+cAns+'</button><button id="inc1btn">${iAns1}</button><button id="inc2btn">${iAns2}</button><button id="inc3btn">${iAns3}</button>';
+  }
+  else if(randNum == 1){
+    document.getElementById("answers").innerHTML = '<button id="inc1btn">${iAns1}</button><button id="correctbtn">'+cAns+'</button><button id="inc2btn">${iAns2}</button><button id="inc3btn">${iAns3}</button>';
+  }
+  else if(randNum == 2){
+    document.getElementById("answers").innerHTML = '<button id="inc1btn">${iAns1}</button><button id="inc2btn">${iAns2}</button><button id="correctbtn">'+cAns+'</button><button id="inc3btn">${iAns3}</button>';
+  }
+  else{
+    document.getElementById("answers").innerHTML = '<button id="inc1btn">${iAns1}</button><button id="inc2btn">${iAns2}</button><button id="inc3btn">${iAns3}</button><button id="correctbtn">'+cAns+'</button>';
+  }
+  corrBtn = document.getElementById("correctbtn");
+  incBtn1 = document.getElementById("inc1btn");
+  incBtn2 = document.getElementById("inc2btn");
+  incBtn3 = document.getElementById("inc3btn");
+}
+
+//Game over
+function endGame(){
+  //Handles grammar of end message
+  var q = "";
+  if(numCorrect==1){
+    q="question";
+  }
+  else {
+    q="questions";
+  }
+
+  //Customizes end message to score
+  var perCorrect = numCorrect/currentQuestionCount;
+  var endMessage = "";
+  if(perCorrect>=0.75){
+    endMessage = "Wow! You know your stuff!";
+  }
+  else if(perCorrect>=0.5){
+    endMessage = "Not bad!";
+  }
+  else{
+    endMessage = "Better luck next time.";
+  }
+
+  var fullMessage = "You answered "+numCorrect+" out of "+currentQuestionCount+" " + q + " correctly. "+ endMessage;
+
+  document.getElementById("inprogress").style.display = "none";
+  document.getElementById("gameover").style.display = "block";
+  document.getElementById("gameover").innerHTML = fullMessage;
+
+  desiredQuestionCount = 0;
+  currentQuestionCount = 0;
+  numCorrect = 0;
+  document.getElementById("playagain").style.display = "block";
+
+  againBtn.addEventListener('click', function(){
+    document.getElementById("gameover").style.display = "none";
+    document.getElementById("playagain").style.display = "none";
+    document.getElementById("pregame").style.display = "block";
+  }); // end play again event listener
 }
