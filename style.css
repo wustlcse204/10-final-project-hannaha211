@@ -1,0 +1,11 @@
+/*
+  Personal Stylesheet
+*/
+
+#game {
+  margin: 10px;
+}
+
+#game button {
+  width: 100%;
+}
