@@ -94,16 +94,16 @@ function setUpClue(){
 function randomizeAnswers(cAns, iAns1, iAns2, iAns3){
   var randNum = Math.floor(Math.random()*Math.floor(4));
   if(randNum == 0){
-    document.getElementById("answers").innerHTML = '<button id="correctbtn">'+cAns+'</button><button id="inc1btn">${iAns1}</button><button id="inc2btn">${iAns2}</button><button id="inc3btn">${iAns3}</button>';
+    document.getElementById("answers").innerHTML = '<button id="correctbtn">'+cAns+'</button><button id="inc1btn">'+iAns1+'</button><button id="inc2btn">'+iAns2+'</button><button id="inc3btn">'+iAns3+'</button>';
   }
   else if(randNum == 1){
-    document.getElementById("answers").innerHTML = '<button id="inc1btn">${iAns1}</button><button id="correctbtn">'+cAns+'</button><button id="inc2btn">${iAns2}</button><button id="inc3btn">${iAns3}</button>';
+    document.getElementById("answers").innerHTML = '<button id="inc1btn">'+iAns1+'</button><button id="correctbtn">'+cAns+'</button><button id="inc2btn">'+iAns2+'</button><button id="inc3btn">'+iAns3+'</button>';
   }
   else if(randNum == 2){
-    document.getElementById("answers").innerHTML = '<button id="inc1btn">${iAns1}</button><button id="inc2btn">${iAns2}</button><button id="correctbtn">'+cAns+'</button><button id="inc3btn">${iAns3}</button>';
+    document.getElementById("answers").innerHTML = '<button id="inc1btn">'+iAns1+'</button><button id="inc2btn">'+iAns2+'</button><button id="correctbtn">'+cAns+'</button><button id="inc3btn">'+iAns3+'</button>';
   }
   else{
-    document.getElementById("answers").innerHTML = '<button id="inc1btn">${iAns1}</button><button id="inc2btn">${iAns2}</button><button id="inc3btn">${iAns3}</button><button id="correctbtn">'+cAns+'</button>';
+    document.getElementById("answers").innerHTML = '<button id="inc1btn">'+iAns1+'</button><button id="inc2btn">'+iAns2+'</button><button id="inc3btn">'+iAns3+'</button><button id="correctbtn">'+cAns+'</button>';
   }
   corrBtn = document.getElementById("correctbtn");
   incBtn1 = document.getElementById("inc1btn");
