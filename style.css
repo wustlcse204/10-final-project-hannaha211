@@ -122,14 +122,26 @@ body {
   font-size: 12px;
 }
 
+#boxofficetable table {
+  border-collapse: collapse;
+}
+
+#boxofficetable table, #boxofficetable th, #boxofficetable td {
+  border: 2px solid #8B7266;
+}
+
 #boxofficetabletop {
   background-color: #729678;
   color: black;
   text-align: center;
 }
 
-#boxofficetabletop th {
+#boxofficetabletop th, tr td{
   padding: 1%;
+}
+
+#boxofficetable tr td {
+  font-size: 13px;
 }
 
 .bofilmtitle {
