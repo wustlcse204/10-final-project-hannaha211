@@ -55,8 +55,8 @@ body {
 
 .carousel-caption {
   /*background-color: #8b7266; Light brown color*/
-  background: rgba(0, 0, 0, 0.5);
-
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px;
 }
 
 /*Begin Game Styling*/
