@@ -172,16 +172,22 @@
     <a id="gamejump"></a>
 
     <div class="restofpage" id="gamesect"> <!---->
-      <div class="container" id="gamewrap"> <!--start gamewrap-->
+      <div class="content" id="gamewrap"> <!--start gamewrap-->
+        <img src="goodwill.png" alt="Good Will Hunting" id="goodwill" />
+        <h1>Trivia Game</h1>
+        <div class="internal" id="instructions">
+          Do you have a genius-level IQ, like Will Hunting, when it comes to movie trivia? Try your hand at Film Facts' trivia game, built
+          via the Open Trivia Database. Playing is simple. Just choose your difficulty level and question quantity (must be between 1 and 20),
+          and you're off to the races! Best of luck!
+        </div>
         <div class="content" id="game">
-          <h1>Trivia</h1>
           <div id="pregame">
             <form id="numqform" method="GET">
               <h6>Select your difficulty level.</h6>
               <input type="radio" name="difficulty" id="easy" value="easy" checked><label for="easy">: Easy</label><br>
               <input type="radio" name="difficulty" id="medium" value="medium"><label for="medium">: Medium</label><br>
               <input type="radio" name="difficulty" id="hard" value="hard"><label for="hard">: Hard</label><br>
-              <h6>How many questions would you like?</h6>
+              <h6>How many questions would you like? (1-20)</h6>
               <input type="text" name="desiredq" id="desiredqcount" value=""><br><br>
               <input type="button" value="Start Game" id=startbtn onClick = "getPlays(this.form)">
             </form>
