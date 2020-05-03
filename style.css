@@ -281,9 +281,24 @@ body {
 #factlist {
   display: inline-block;
   width: 80%;
-  border: 2px solid #EB553F;
+  border: 2px solid #8B7266;
   border-radius: 5px;
   padding: 5px;
+}
+
+#may20facts li {
+  color: white;
+}
+
+.factitem ul {
+  list-style-type: none;
+  font-size: 13px;
+  margin-right: 10%;
+}
+
+#may20facts > li {
+  color: #EB553F;
+  margin-top: 5px;
 }
 
 /*
