@@ -278,6 +278,14 @@ body {
   margin-right: 35%;
 }
 
+#factlist {
+  display: inline-block;
+  width: 80%;
+  border: 2px solid #EB553F;
+  border-radius: 5px;
+  padding: 5px;
+}
+
 /*
   Begin contact styling
 */
