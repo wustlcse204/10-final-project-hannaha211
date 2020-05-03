@@ -2,6 +2,11 @@
   Personal Stylesheet
 */
 
+@font-face {
+  font-family: SF Hollywood Hills;
+  src: url(SF_Hollywood_Hills.woff);
+}
+
 body {
   font-family: 'Rubik', sans-serif;
   background-color: black;
