@@ -210,3 +210,8 @@ function setShareLinks() {
     socialWindow(url);
   });
 }
+
+//Clears contact form after submit
+function emptyOut(){
+  document.getElementById("contactcontents").value="";
+}
