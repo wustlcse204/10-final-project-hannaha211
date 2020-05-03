@@ -122,6 +122,20 @@ body {
   font-size: 12px;
 }
 
+#boxofficetabletop {
+  background-color: #729678;
+  color: black;
+  text-align: center;
+}
+
+#boxofficetabletop th {
+  padding: 1%;
+}
+
+.bofilmtitle {
+  font-style: italic;
+}
+
 #covid {
   margin-top: 10px;
   font-size: 10px;
