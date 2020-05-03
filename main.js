@@ -13,15 +13,36 @@ let incBtn1 = "";
 let incBtn2 = "";
 let incBtn3 = "";
 
+let level = "";
+
 var desiredQuestionCount = 0;
 var currentQuestionCount = 0;
 var numCorrect = 0;
 
 //Extracts how many questions user wants
 function getPlays(form){
+  desiredQuestionCount = 0;
+  currentQuestionCount = 0;
+  numCorrect = 0;
   desiredQuestionCount = form.desiredq.value;
+  var notNumber = isNaN(form.desiredq.value);
+  console.log(desiredQuestionCount);
+  if((desiredQuestionCount<1)||(desiredQuestionCount>20)||notNumber){
+    alert("You have entered an invalid number. By default, you will be given 5 questions.");
+    desiredQuestionCount=5;
+  }
   form.desiredq.value = "";
   //console.log(desiredQuestionCount);
+
+  if(document.getElementById("hard").checked){
+    level="hard";
+  }
+  else if(document.getElementById("medium").checked){
+    level="medium";
+  }
+  else{
+    level="easy";
+  }
 }
 
 //Sets up first question
@@ -39,7 +60,7 @@ function setUpClue(){
     return;
   }
 
-  fetch('https://opentdb.com/api.php?amount=1&category=11&difficulty=medium&type=multiple')
+  fetch('https://opentdb.com/api.php?amount=1&category=11&difficulty='+level+'&type=multiple')
   .then(
     function(response) {
       if (response.status !== 200) {

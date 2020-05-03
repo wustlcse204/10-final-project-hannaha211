@@ -19,42 +19,38 @@
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <!--Icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <!--Link to personal stylesheet-->
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
 
   <body>
-    <header>
       <!--Navbar assistance from bootstrap documentation-->
       <div class="navbar navbar-expand-lg container-fluid sticky-top" id="pagetop">
-        <div class="partition">
             <div class="navbar navbar-brand">
               <img src="film_reel_resized.png" alt="Film Reel" id="sitelogo" />
               Film Facts
             </div>
             <div class="sectchoices">
               <div class="navbar nav-item" id="contactbtn">
-                <a href="#" class="option">Contact</a>
+                <a href="#contactjump" class="option">Contact</a>
               </div>
               <div class="navbar nav-item" id="resourcesbtn">
-                <a href="#" class="option">Resources</a>
+                <a href="#resourcejump" class="option">Resources</a>
               </div>
               <div class="navbar nav-item" id="factsbtn">
-                <a href="#" class="option">Fun Facts</a>
+                <a href="#factjump" class="option">Fun Facts</a>
               </div>
               <div class="navbar nav-item" id="triviabtn">
-                <a href="#" class="option">Trivia Game</a>
+                <a href="#gamejump" class="option">Trivia Game</a>
               </div>
               <div class="navbar nav-item" id="homebtn">
-                <a href="#home" class="option">Home</a>
+                <a href="#homejump" class="option">Home</a>
               </div>
             </div>
-        </div>
       </div>
-    </header>
-
-    <div class="restofpage" id="sec1">
-    </div>
 
     <!--Carousel base code from https://getbootstrap.com/docs/4.0/components/carousel/-->
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -160,15 +156,33 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
+    </div> <!--end carousel-->
+
+    <a id="homejump"></a>
+
+    <div class="restofpage" id="welcomesect">
+      <div class="content" id="welcome">
+        <h1>Welcome to the Jungle</h1>
+        <div class="internal" id="welcomep1">
+          Welcome to Film Facts, film fanatics' favorite corner of the internet.
+        </div>
+      </div>
     </div>
 
-    <div class="restofpage" id="sec2">
+    <a id="gamejump"></a>
+
+    <div class="restofpage" id="gamesect"> <!---->
       <div class="container" id="gamewrap"> <!--start gamewrap-->
-        <div id="game">
+        <div class="content" id="game">
           <h1>Trivia</h1>
           <div id="pregame">
             <form id="numqform" method="GET">
-              How many questions would you like? <input type="text" name="desiredq" id="desiredqcount" value=""><br><br>
+              <h6>Select your difficulty level.</h6>
+              <input type="radio" name="difficulty" id="easy" value="easy" checked><label for="easy">: Easy</label><br>
+              <input type="radio" name="difficulty" id="medium" value="medium"><label for="medium">: Medium</label><br>
+              <input type="radio" name="difficulty" id="hard" value="hard"><label for="hard">: Hard</label><br>
+              <h6>How many questions would you like?</h6>
+              <input type="text" name="desiredq" id="desiredqcount" value=""><br><br>
               <input type="button" value="Start Game" id=startbtn onClick = "getPlays(this.form)">
             </form>
           </div>
@@ -185,9 +199,36 @@
           </div>
         </div>
       </div> <!--end gamewrap-->
-
     </div>
 
+    <a id="factjump"></a>
+
+    <div class="restofpage" id="factsect">
+    </div>
+
+    <a id="resourcejump"></a>
+
+    <div class="restofpage" id="resourcesect">
+    </div>
+
+    <a id="contactjump"></a>
+
+    <div class="restofpage" id="contactsect">
+    </div>
+
+    <!-- Footer -->
+    <div class="restofpage" id="bottom">
+      <div class="socials">
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-youtube"></a>
+        <a href="#" class="fa fa-twitter"></a>
+        <a href="#" class="fa fa-instagram"></a>
+      </div>
+      <div class=copyright>
+        © 2020 Copyright:
+        <a href="#"> FilmFacts.com</a>
+      </div>
+    </div>
     <!--Link to personal JS-->
     <script src="main.js"></script>
     <!--Bootstrap Inclusion-->
