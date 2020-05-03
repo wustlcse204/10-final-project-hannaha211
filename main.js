@@ -14,6 +14,8 @@ let incBtn2 = "";
 let incBtn3 = "";
 
 let level = "";
+let finalScore = "";
+let lastSessionQuestionCount = "";
 
 var desiredQuestionCount = 0;
 var currentQuestionCount = 0;
@@ -165,14 +167,47 @@ function endGame(){
   document.getElementById("gameover").style.display = "block";
   document.getElementById("gameover").innerHTML = fullMessage;
 
+  finalScore=numCorrect;
+  lastSessionQuestionCount=desiredQuestionCount;
+
   desiredQuestionCount = 0;
   currentQuestionCount = 0;
   numCorrect = 0;
   document.getElementById("playagain").style.display = "block";
+  setShareLinks();
+  document.getElementById("sharescore").style.display = "block";
 
   againBtn.addEventListener('click', function(){
     document.getElementById("gameover").style.display = "none";
     document.getElementById("playagain").style.display = "none";
     document.getElementById("pregame").style.display = "block";
   }); // end play again event listener
+}
+
+/*
+  The two functions below help coordinate the share results feature for the game
+  I referenced this CodePen for help: https://codepen.io/adamcoti/pen/jVGWdG
+*/
+function socialWindow(url) {
+  var left = (screen.width - 570) / 2;
+  var top = (screen.height - 570) / 2;
+  var params = "menubar=no,toolbar=no,status=no,width=570,height=570,top=" + top + ",left=" + left;
+
+  window.open(url,"NewWindow",params);
+}
+
+function setShareLinks() {
+  var pageUrl = encodeURIComponent('https://wustlcse204.github.io/10-final-project-hannaha211');
+  //var tweet = encodeURIComponent($("meta[property='og:description']").attr("content"));
+  var post = encodeURIComponent('I scored '+finalScore+' out of '+lastSessionQuestionCount+' on Film Facts Trivia! Can you beat it?');
+
+  $(".social-share.facebook").on("click", function() {
+    url = "https://www.facebook.com/sharer.php?u=" + pageUrl;
+    socialWindow(url);
+  });
+
+  $(".social-share.twitter").on("click", function() {
+    url = "https://twitter.com/intent/tweet?url=" + pageUrl + "&text=" + post;
+    socialWindow(url);
+  });
 }
