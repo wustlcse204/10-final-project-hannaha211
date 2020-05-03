@@ -106,7 +106,6 @@ body {
 */
 
 #bottom {
-  margin-top: 15px;
   background-color: #8B7266;
 }
 
@@ -147,6 +146,8 @@ body {
 .copyright {
   background-color: #736259;
   font-weight: bolder;
+  padding: 0px;
+  margin: 0px;
 }
 
 .copyright a{
