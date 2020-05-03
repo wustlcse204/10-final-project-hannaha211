@@ -164,9 +164,9 @@
 
     <div class="restofpage" id="welcomesect">
       <div class="content" id="welcome">
-        <h1>Welcome to the Jungle</h1>
+        <h1>Welcome</h1>
         <div class="internal" id="welcomep1">
-          Welcome to Film Facts, film fanatics' favorite corner of the internet. Here you can find facts about your favorite movies,
+          Welcome to... No, not Jurassic Park! This is Film Facts, film fanatics' favorite corner of the internet. Here you can find facts about your favorite movies,
           a consolidated list of movie resources to continue your research, and a quiz to test your knowledge!
         </div>
         <h3>2020 Domestic Box Office Stats</h3>
@@ -325,6 +325,7 @@
 
     <div class="restofpage" id="factsect">
       <div class="content" id="facts">
+        <img src="ghostbusters.jpg" alt="Ghostbusters" id="ghostbusters" />
         <h1>Fun Facts</h1>
       </div>
     </div>
@@ -341,7 +342,21 @@
 
     <div class="restofpage" id="contactsect">
       <div class="content" id="contact">
+        <img src="harrypotter.jpg" alt="Harry Potter" id="potter" />
         <h1>Contact Us</h1>
+        <div class="internal" id="contactintro">
+          Have any questions, comments, or concerns about our site? Fill out the form below and we'll address it as soon as we can.
+          If you prefer email, you can find us at <a href="mailto:help@filmfacts.com">help@filmfacts.com</a>, but it might take us
+          longer to get to you; Some days our inbox is swarmed like the Dursley residence above. We also monitor the
+          comments and inboxes on our social media platforms, which can be found below the form.
+        </div>
+        <div id="contactformwrap">
+          <h6>What's up, Doc?</h6>
+          <textarea name="contactmessage" id="contactcontents" form="helpform" placeholder="Type here..."></textarea>
+          <form id="helpform" action="/action_page.php">
+            <input type="button" value="Submit" id=submitbtn>
+          </form>
+        </div>
       </div>
     </div>
 

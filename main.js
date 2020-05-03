@@ -28,13 +28,11 @@ function getPlays(form){
   numCorrect = 0;
   desiredQuestionCount = form.desiredq.value;
   var notNumber = isNaN(form.desiredq.value);
-  console.log(desiredQuestionCount);
   if((desiredQuestionCount<1)||(desiredQuestionCount>20)||notNumber){
     alert("You have entered an invalid number. By default, you will be given 5 questions.");
     desiredQuestionCount=5;
   }
   form.desiredq.value = "";
-  //console.log(desiredQuestionCount);
 
   if(document.getElementById("hard").checked){
     level="hard";
@@ -78,7 +76,7 @@ function setUpClue(){
         const incorrAns1 = data.results[0].incorrect_answers[0];
         const incorrAns2 = data.results[0].incorrect_answers[1];
         const incorrAns3 = data.results[0].incorrect_answers[2];
-        console.log("question: "+question+" XX correct: "+corrAns+" XX in1: "+incorrAns1+" XX in2: "+incorrAns2+" XX in3: "+incorrAns3);
+        //console.log("question: "+question+" XX correct: "+corrAns+" XX in1: "+incorrAns1+" XX in2: "+incorrAns2+" XX in3: "+incorrAns3);
 
         //Display
         document.getElementById("question").innerHTML = (currentQuestionCount+1)+". "+question;
@@ -180,6 +178,7 @@ function endGame(){
   againBtn.addEventListener('click', function(){
     document.getElementById("gameover").style.display = "none";
     document.getElementById("playagain").style.display = "none";
+    document.getElementById("sharescore").style.display = "none";
     document.getElementById("pregame").style.display = "block";
   }); // end play again event listener
 }

@@ -101,6 +101,12 @@ body {
 
 /*Begin Welcome styling*/
 
+#welcome h1 {
+  margin-top: 15px;
+  margin-left: 35%;
+  margin-right: 35%;
+}
+
 #boxofficeintro {
   margin-bottom: 0px;
   padding: 5px 10px 5px 10px;
@@ -109,7 +115,7 @@ body {
 #topbox {
   padding: 5px;
   margin: 0px 25% 0px 25%;
-  border: 2px solid #8B7266;
+  border: 2px solid #EB553F;
   border-radius: 10px;
 }
 
@@ -253,6 +259,69 @@ body {
 #sharescore button:hover {
   background-color: #B22222;
 }
+
+/*
+  Begin facts section
+*/
+
+#facts img {
+  margin: 0px;
+  padding: 0px;
+  display: inline;
+  width: 100%;
+  height: auto;
+}
+
+#facts h1 {
+  margin-top: 15px;
+  margin-left: 35%;
+  margin-right: 35%;
+}
+
+/*
+  Begin contact styling
+*/
+
+#contact img {
+  margin: 0px;
+  padding: 0px;
+  display: inline;
+  width: 100%;
+  height: auto;
+}
+
+#contact h1 {
+  margin-top: 15px;
+  margin-left: 35%;
+  margin-right: 35%;
+}
+
+#contactformwrap {
+  background-color: #729678;
+  width: 65%;
+  padding: 1%;
+  display: inline-block;
+  border: 3px solid #8B7266;
+  border-radius: 5px;
+}
+
+#contactformwrap h6 {
+  color: black;
+}
+
+#contactcontents {
+  width: 90%;
+}
+
+#submitbtn {
+  background-color: #EB553F;
+  color: white;
+}
+
+#submitbtn:hover {
+  background-color: #B22222;
+}
+
 /*Footer Styling
   I referenced https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_social_media_buttons for social media icons
 */
