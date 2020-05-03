@@ -69,8 +69,22 @@ body {
   color: #EB553F;
 }
 
+.content h3 {
+  color: #729678;
+  text-decoration: underline;
+}
+
 .internal {
+  margin: 0px 5% 0px 5%;
   padding: 20px;
+}
+
+.internal a {
+  color: #729678;
+}
+
+.internal a:hover {
+  color: #EB553F;
 }
 
 /*Carousel styling*/
@@ -82,6 +96,41 @@ body {
 }
 
 .carousel-caption h5 {
+  color: #EB553F;
+}
+
+/*Begin Welcome styling*/
+
+#boxofficeintro {
+  margin-bottom: 0px;
+  padding: 5px 10px 5px 10px;
+}
+
+#topbox {
+  padding: 5px;
+  margin: 0px 25% 0px 25%;
+  border: 2px solid #8B7266;
+  border-radius: 10px;
+}
+
+#badboys {
+  width: 95%;
+}
+
+#badboyscap {
+  padding-top: 10px;
+  font-size: 12px;
+}
+
+#covid {
+  margin-top: 10px;
+  font-size: 10px;
+  font-style: italic;
+  color: white;
+  padding: 0px 10% 0px 10%;
+}
+
+#note {
   color: #EB553F;
 }
 
